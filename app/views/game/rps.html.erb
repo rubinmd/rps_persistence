@@ -49,30 +49,30 @@
 
         <tr>
           <td>rock</td>
-          <td>3</td>
-          <td>0</td>
-          <td>1</td>
+          <td><%= Move.where({:user_move => "rock", :user_wins => "1"}).count %></td>
+          <td><%= Move.where({:user_move => "rock", :computer_wins => "1"}).count %></td>
+          <td><%= Move.where({:user_move => "rock", :tie => "1"}).count %></td>
         </tr>
 
         <tr>
           <td>paper</td>
-          <td>0</td>
-          <td>1</td>
-          <td>1</td>
+          <td><%= Move.where({:user_move => "paper", :user_wins => "1"}).count %></td>
+          <td><%= Move.where({:user_move => "paper", :computer_wins => "1"}).count %></td>
+          <td><%= Move.where({:user_move => "paper", :tie => "1"}).count %></td>
         </tr>
 
         <tr>
           <td>scissors</td>
-          <td>1</td>
-          <td>2</td>
-          <td>2</td>
+          <td><%= Move.where({:user_move => "scissors", :user_wins => "1"}).count %></td>
+          <td><%= Move.where({:user_move => "scissors", :computer_wins => "1"}).count %></td>
+          <td><%= Move.where({:user_move => "scissors", :tie => "1"}).count %></td>
         </tr>
 
         <tr>
           <th>Total</th>
-          <th>4</th>
-          <th>3</th>
-          <th>4</th>
+          <th><%= Move.sum("user_wins") %></th>
+          <th><%= Move.sum("computer_wins") %></th>
+          <th><%= Move.sum("tie") %></th>
         </tr>
       </table>
     </div>
@@ -82,7 +82,7 @@
       <div class="panel-heading">
         <h5 class="panel-title">
           Complete history
-          (11)
+          (<%= Move.count %>)
         </h5>
       </div>
 

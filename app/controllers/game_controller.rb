@@ -42,5 +42,17 @@ class GameController < ApplicationController
         @result="win"
       end
     end
+
+    m = Move.new
+    m.user_move = @user_move
+    m.computer_move = @computer_move
+    if @result=="win"
+      m.user_wins = 1
+    elsif @result=="lose"
+      m.computer_wins=1
+    else
+      m.tie=1
+    end
+    m.save
   end
 end
