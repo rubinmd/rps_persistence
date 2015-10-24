@@ -5,5 +5,7 @@ class GameController < ApplicationController
   end
 
   # Your code goes below.
+  def rps
+  end
 
 end
